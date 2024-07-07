@@ -15,20 +15,20 @@ export const fetchTrendingMovies = async () => {
 
 // Fetch Movies by Query
 export const fetchMovieQuery = async movieName => {
-  const response = await axios.get(`search/movie?=${movieName}`);
+  const response = await axios.get(`search/movie?query=${movieName}`);
   return response.data.results;
 };
 
 // Fetch Movie Details
 export const fetchMovieDetails = async movieId => {
   const response = await axios.get(`movie/${movieId}`);
-  return response.data.results;
+  return response.data;
 };
 
 // Fetch Movie Cast
 export const fetchMovieCast = async movieId => {
   const response = await axios.get(`movie/${movieId}/credits?`);
-  return response.data.results;
+  return response.data.cast;
 };
 
 // Fetch Movie Reviews
