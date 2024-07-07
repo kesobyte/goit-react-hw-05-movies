@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './CastListItem.module.css';
-import { LineWave } from 'react-loader-spinner';
 
-export const CastListItem = ({ profilePath, originalName, name }) => {
+const CastListItem = ({ profilePath, originalName, name }) => {
   return (
     <li className={css.CastListItem}>
       <img
@@ -25,3 +24,5 @@ CastListItem.propTypes = {
   originalName: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
+
+export default CastListItem;

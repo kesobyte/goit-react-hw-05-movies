@@ -1,13 +1,13 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/tmdb-api';
-import Button from 'components/Button/Button';
-import { Loader } from 'components/Loader/Loader';
 import css from './MovieDetailsPage.module.css';
+import { Button } from 'components/Button/Button';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState();
+  const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
@@ -26,6 +26,9 @@ const MovieDetailsPage = () => {
     return <Loader />;
   }
 
+  const { poster_path, title, overview, release_date, genres, vote_average } =
+    movieDetails;
+
   return (
     <>
       <Link to={backLinkHref}>
@@ -33,12 +36,23 @@ const MovieDetailsPage = () => {
       </Link>
 
       <div className={css.movieDetailsContainer}>
-        <img className={css.image} src="" />
+        <img
+          className={css.image}
+          src={`https://image.tmdb.org/t/p/w300${poster_path}`}
+          alt={title}
+        />
+        <div className={css.details}>
+          <h2>{title}</h2>
+          <p>Release Date: {release_date}</p>
+          <p>User Score: {vote_average}</p>
+          <h3>Overview</h3>
+          <p>{overview}</p>
+          <h3>Genres</h3>
+          <p>{genres.map(genre => genre.name).join(', ')}</p>
+        </div>
       </div>
 
-      {/* Fallback Loader while Waiting */}
       <Suspense fallback={<Loader />}>
-        {/* Outlet should be used in parent route elements to render their child route elements */}
         <Outlet />
       </Suspense>
     </>

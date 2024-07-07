@@ -1,0 +1,36 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.movieListItem {
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+}
+
+.movieLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  text-align: center;
+}
+
+.movieImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.movieImage:hover {
+  transform: scale(1.05);
+}
+
+.movieTitle {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}

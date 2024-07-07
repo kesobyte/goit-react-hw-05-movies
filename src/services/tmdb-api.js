@@ -14,25 +14,25 @@ export const fetchTrendingMovies = async () => {
 };
 
 // Fetch Movies by Query
-export const fetchMovieQuery = async () => {
+export const fetchMovieQuery = async movieName => {
   const response = await axios.get(`search/movie?=${movieName}`);
   return response.data.results;
 };
 
 // Fetch Movie Details
-export const fetchMovieDetails = async () => {
+export const fetchMovieDetails = async movieId => {
   const response = await axios.get(`movie/${movieId}`);
   return response.data.results;
 };
 
 // Fetch Movie Cast
-export const fetchMovieCast = async () => {
+export const fetchMovieCast = async movieId => {
   const response = await axios.get(`movie/${movieId}/credits?`);
   return response.data.results;
 };
 
 // Fetch Movie Reviews
-export const fetchMovieReviews = async () => {
+export const fetchMovieReviews = async movieId => {
   const response = await axios.get(`movie/${movieId}/reviews?`);
   return response.data.results;
 };
