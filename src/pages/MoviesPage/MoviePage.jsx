@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchMovieQuery } from 'services/tmdb-api';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { MovieList } from 'components/MovieList/MovieList';
+import styles from './MoviePage.module.css';
 
 const MoviePage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -31,12 +32,16 @@ const MoviePage = () => {
   }, [movieName]);
 
   return (
-    <div>
-      <SearchBar value={movieName} onChange={updateQueryString} />
+    <div className={styles.container}>
+      <div className={styles.searchBarContainer}>
+        <SearchBar value={movieName} onChange={updateQueryString} />
+      </div>
       {isLoading ? (
-        <Loader />
+        <div className={styles.loader}>
+          <Loader />
+        </div>
       ) : movieName && searchResults.length === 0 ? (
-        <h2>🔎 Nothing Found</h2>
+        <h2 className={styles.noResults}>🔎 Nothing Found</h2>
       ) : (
         <MovieList movies={searchResults} />
       )}

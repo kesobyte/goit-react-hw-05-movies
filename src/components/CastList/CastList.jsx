@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/tmdb-api';
 import { Loader } from 'components/Loader/Loader';
 import CastListItem from './CastListitem/CastListItem';
+import css from './CastList.module.css';
 
 const CastList = () => {
   const { movieId } = useParams();
@@ -29,7 +30,7 @@ const CastList = () => {
   }
 
   return (
-    <ul>
+    <ul className={css.castList}>
       {cast.map(actor => (
         <CastListItem
           key={actor.id}

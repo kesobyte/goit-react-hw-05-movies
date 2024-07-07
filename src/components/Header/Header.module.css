@@ -1,6 +1,6 @@
 .header {
-  background-color: #333;
-  padding: 10px 0;
+  background-color: #5046e5;
+  padding: 12px 0;
   color: #fff;
 }
 
@@ -14,10 +14,11 @@
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
+  letter-spacing: 0.08em;
 }
 
 .nav {
@@ -26,16 +27,17 @@
 }
 
 .navLink {
-  font-size: 18px;
+  font-size: 15px;
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: bold;
 }
 
 .navLink:hover {
-  color: #007bff;
+  color: #ffba30;
 }
 
 .activeNavLink {
-  color: #007bff;
+  color: #ffba30;
 }

@@ -1,27 +1,27 @@
 .movieList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   list-style: none;
   padding: 0;
 }
 
 .movieListItem {
-  width: calc(25% - 20px);
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movieLink {
   text-decoration: none;
   color: inherit;
-  display: block;
-  text-align: center;
 }
 
 .movieImage {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -31,6 +31,7 @@
 
 .movieTitle {
   margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
 }

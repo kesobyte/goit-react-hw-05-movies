@@ -9,7 +9,7 @@ export const SearchBar = ({ onChange, value }) => {
   };
 
   return (
-    <div className={css.InputWrapper}>
+    <div className={css.inputWrapper}>
       <DebounceInput
         className={css.input}
         type="text"
@@ -25,6 +25,6 @@ export const SearchBar = ({ onChange, value }) => {
 };
 
 SearchBar.propTypes = {
-  onChange: propTypes.func,
-  value: propTypes.string,
+  onChange: propTypes.func.isRequired,
+  value: propTypes.string.isRequired,
 };

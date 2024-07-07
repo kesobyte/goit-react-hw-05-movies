@@ -7,7 +7,7 @@ const Header = () => {
     <header className={css.header}>
       <div className={css.container}>
         <NavLink to="/" className={css.logo}>
-          MovieApp
+          MOVIEBYTES
         </NavLink>
         <nav className={css.nav}>
           <NavLink

@@ -3,18 +3,17 @@ import css from './CastListItem.module.css';
 
 const CastListItem = ({ profilePath, originalName, name }) => {
   return (
-    <li className={css.CastListItem}>
+    <li className={css.castListItem}>
       <img
-        width="200px"
-        height="300px"
+        className={css.castImage}
         src={
           profilePath
             ? `https://image.tmdb.org/t/p/w300${profilePath}`
-            : `https://fakeimg.pl/600x400?text=Image+Not+Available`
+            : `https://dummyimage.com/150x225/969696/e0e0e0.jpg&text=No+image`
         }
         alt={originalName}
       />
-      <p>{name}</p>
+      <p className={css.castName}>{name}</p>
     </li>
   );
 };

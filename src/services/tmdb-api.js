@@ -7,10 +7,19 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-// Fetch Trening Movies
-export const fetchTrendingMovies = async () => {
-  const response = await axios.get(`trending/movie/day`);
-  return response.data.results;
+// Fetch Trending Movies
+export const fetchTrendingMovies = async (page = 1) => {
+  try {
+    const response = await axios.get('/trending/movie/week', {
+      params: {
+        page,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('Failed to fetch trending movies:', error);
+    throw error;
+  }
 };
 
 // Fetch Movies by Query

@@ -34,9 +34,9 @@ const MovieDetailsPage = () => {
   const { poster_path, title, vote_average, overview, genres } = movieDetails;
 
   return (
-    <>
-      <Link to={backLinkHref}>
-        <Button text="⬅️ Go back" onClick={() => {}} />
+    <div className={css.container}>
+      <Link to={backLinkHref} className={css.backButton}>
+        <Button text="⬅ Go back" onClick={() => {}} />
       </Link>
       <div className={css.movieDetailsContainer}>
         <img
@@ -44,7 +44,7 @@ const MovieDetailsPage = () => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : `https://fakeimg.pl/600x400?text=Image+Not+Available`
+              : `https://dummyimage.com/150x225/969696/e0e0e0.jpg&text=No+image`
           }
           alt={title}
         />
@@ -54,26 +54,30 @@ const MovieDetailsPage = () => {
           <h2>Overview</h2>
           <p>{overview}</p>
           <h2>Genres</h2>
-          <p>
+          <div className={css.genreList}>
             {genres.map(genre => (
               <span key={genre.id}>{genre.name}</span>
             ))}
-          </p>
+          </div>
         </div>
       </div>
-      <hr />
-      <h3>Additional Information</h3>
-      <Link to="cast">
-        <Button text="Cast" onClick={() => {}} />
-      </Link>
-      <Link to="reviews">
-        <Button text="Reviews" onClick={() => {}} />
-      </Link>
-      <hr />
+      <hr className={css.hr} />
+      <div className={css.additionalInfo}>
+        <h3>Additional Information</h3>
+        <div className={css.additionalLinks}>
+          <Link to="cast">
+            <Button text="Cast" onClick={() => {}} />
+          </Link>
+          <Link to="reviews">
+            <Button text="Reviews" onClick={() => {}} />
+          </Link>
+        </div>
+      </div>
+      <hr className={css.hr} />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </>
+    </div>
   );
 };
 
